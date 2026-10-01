@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Simulação · Atendimento Sport Center no WhatsApp com IA</title>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#000;color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color-scheme:dark}
+*{box-sizing:border-box}
+a{color:#E8C428;text-decoration:none}
+a:hover{color:#F4D75A}
+:focus-visible{outline:3px solid #E8C428;outline-offset:3px}
+@keyframes scDots{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@keyframes scIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(32px,5vw,72px);padding:clamp(24px,4vw,56px);background:radial-gradient(ellipse 60% 70% at 30% 50%,rgba(30,230,170,.10),rgba(0,0,0,0) 70%),#000">
+
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+    <div style="height:100%;display:flex;flex-direction:column;background:#07090A">
+      <div style="flex:none;display:flex;align-items:center;gap:10px;padding:58px 12px 10px;background:#101316;border-bottom:1px solid rgba(133,141,151,.2)">
+        <span aria-hidden="true" style="color:#1EE6AA;font-size:26px;line-height:1;padding:0 4px">‹</span>
+        <span style="width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:#000;border:1.5px solid #1EE6AA">
+          <img src="assets/logo-sc.png" alt="" style="width:74%;height:auto">
+        </span>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+          <span style="font:700 16px/1.1 'Inter',sans-serif;color:#fff">Sport Center · CT</span>
+          <span style="font:500 12px/1.2 'Inter',sans-serif;color:{{ statusColor }}">{{ statusText }}</span>
+        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1EE6AA" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+      </div>
+
+      <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;padding:14px 10px 10px;display:flex;flex-direction:column;gap:8px;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(30,230,170,.06),rgba(0,0,0,0) 70%),#07090A">
+        <div style="align-self:center;padding:6px 10px;border-radius:8px;background:#14181B;color:#9AA3AD;font:500 12px/1.4 'Inter',sans-serif;text-align:center;max-width:90%">Conta comercial · Atendimento automático com IA e equipe humana</div>
+        <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;align-items:{{ m.align }};gap:6px;animation:scIn .25s ease-out both">
+            <sc-if value="{{ m.isSys }}" hint-placeholder-val="{{ false }}">
+              <div style="align-self:center;padding:6px 12px;border-radius:8px;background:#14181B;border:1px solid rgba(30,230,170,.35);color:#1EE6AA;font:600 12px/1.4 'Inter',sans-serif;text-align:center">{{ m.text }}</div>
+            </sc-if>
+            <sc-if value="{{ m.isMsg }}" hint-placeholder-val="{{ true }}">
+              <div style="max-width:84%;padding:8px 10px 5px;border-radius:{{ m.radius }};background:{{ m.bg }};border:{{ m.border }};display:flex;flex-direction:column;gap:4px">
+                <sc-if value="{{ m.hasFile }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;background:rgba(0,0,0,.35)">
+                    <span style="width:34px;height:40px;border-radius:3px;background:#E8C428;color:#000;display:grid;place-items:center;font:700 10px/1 'JetBrains Mono',monospace">PDF</span>
+                    <span style="display:flex;flex-direction:column;gap:2px"><span style="font:600 14px/1.2 'Inter',sans-serif">{{ m.fileName }}</span><span style="font:500 12px/1 'Inter',sans-serif;color:#9AA3AD">1 página</span></span>
+                  </div>
+                </sc-if>
+                <div style="font:400 15px/1.45 'Inter',sans-serif;color:#fff;white-space:pre-wrap;text-wrap:pretty"><sc-for list="{{ m.segs }}" as="s" hint-placeholder-count="1"><sc-if value="{{ s.ph }}" hint-placeholder-val="{{ false }}"><span style="background:#FF2BD6;color:#000;font:700 12px/1.6 'JetBrains Mono',monospace;padding:1px 5px;border-radius:3px">{{ s.t }}</span></sc-if><sc-if value="{{ s.txt }}" hint-placeholder-val="{{ true }}"><span>{{ s.t }}</span></sc-if></sc-for></div>
+                <sc-if value="{{ m.hasCard }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ m.cardHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;margin-top:2px;padding:10px;border-radius:6px;background:rgba(0,0,0,.4);border:1px solid rgba(30,230,170,.35);color:#fff" style-hover="color:#fff;border-color:#1EE6AA">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1EE6AA" stroke-width="2" aria-hidden="true" style="flex:none"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+                    <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font:700 14px/1.2 'Inter',sans-serif">{{ m.cardTitle }}</span><span style="font:400 12px/1.35 'Inter',sans-serif;color:#9AA3AD">{{ m.cardAddr }}</span><span style="font:600 12px/1 'Inter',sans-serif;color:#E8C428">Abrir no mapa</span></span>
+                  </a>
+                </sc-if>
+                <div style="display:flex;justify-content:flex-end;align-items:center;gap:4px;font:500 11px/1 'Inter',sans-serif;color:#9AA3AD">
+                  <span>{{ m.time }}</span>
+                  <sc-if value="{{ m.isC }}" hint-placeholder-val="{{ false }}"><svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="#1EE6AA" stroke-width="1.6" aria-label="Lida"><path d="M1 5.5 4 8.5 10 1.5M6.5 8.5 7 9l6.5-7.5"></path></svg></sc-if>
+                </div>
+              </div>
+              <sc-if value="{{ m.hasOptions }}" hint-placeholder-val="{{ false }}">
+                <div style="width:84%;display:flex;flex-direction:column;gap:4px">
+                  <sc-for list="{{ m.options }}" as="o" hint-placeholder-count="3">
+                    <button type="button" onClick="{{ o.on }}" disabled="{{ o.disabled }}" style="min-height:40px;border-radius:8px;border:1px solid {{ o.border }};background:{{ o.bg }};color:#1EE6AA;font:600 14px/1 'Inter',sans-serif;cursor:pointer">{{ o.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </sc-if>
+          </div>
+        </sc-for>
+        <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
+          <div aria-label="Digitando" style="align-self:flex-start;display:flex;gap:5px;padding:12px 14px;border-radius:4px 12px 12px 12px;background:#1A1D21">
+            <span style="width:7px;height:7px;border-radius:50%;background:#9AA3AD;animation:scDots 1.2s infinite"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:#9AA3AD;animation:scDots 1.2s .2s infinite"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:#9AA3AD;animation:scDots 1.2s .4s infinite"></span>
+          </div>
+        </sc-if>
+      </div>
+
+      <form onSubmit="{{ send }}" style="flex:none;display:flex;align-items:center;gap:8px;padding:8px 10px 34px;background:#101316;border-top:1px solid rgba(133,141,151,.2)">
+        <label for="wa-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Mensagem</label>
+        <input id="wa-input" value="{{ draft }}" onChange="{{ onDraft }}" disabled="{{ inputDisabled }}" placeholder="{{ inputPlaceholder }}" autocomplete="off" style="flex:1;min-width:0;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(133,141,151,.35);background:#07090A;color:#fff;font:400 15px/1 'Inter',sans-serif">
+        <button type="submit" disabled="{{ inputDisabled }}" aria-label="Enviar" style="width:44px;height:44px;flex:none;border-radius:50%;border:none;display:grid;place-items:center;background:#1EE6AA;color:#000;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+      </form>
+    </div>
+  </x-import>
+
+  <aside style="width:min(460px,100%);display:flex;flex-direction:column;gap:26px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+        <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#858D97">PROTÓTIPO · SIMULAÇÃO</span>
+        <span style="border:1px solid #FF2BD6;color:#FF7AE6;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.06em;padding:5px 7px;border-radius:2px">COPY PROVISÓRIA</span>
+      </div>
+      <h1 style="margin:0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:66%;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;font-size:clamp(40px,4.4vw,64px);color:#F6EEE2">Atendimento no WhatsApp com IA</h1>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#fff;text-wrap:pretty">Como a assistente responde quem chega pelo site. A cliente da conversa de exemplo é fictícia.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97">MODO</span>
+      <div role="group" aria-label="Modo" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button type="button" aria-pressed="{{ isDemo }}" onClick="{{ pickDemo }}" style="min-height:48px;border-radius:4px;border:1.5px solid #E8C428;background:{{ demoBtn.bg }};color:{{ demoBtn.fg }};font:800 15px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">CONVERSA DE EXEMPLO</button>
+        <button type="button" aria-pressed="{{ isLive }}" onClick="{{ pickLive }}" style="min-height:48px;border-radius:4px;border:1.5px solid #E8C428;background:{{ liveBtn.bg }};color:{{ liveBtn.fg }};font:800 15px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">CONVERSE VOCÊ</button>
+      </div>
+      <sc-if value="{{ isLive }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-size:14px;line-height:1.5;color:#9AA3AD">Escreva no celular como se fosse um cliente. A IA responde de verdade.</p>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ isDemo }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97">CENÁRIO</span>
+        <div role="group" aria-label="Cenário" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <button type="button" aria-pressed="{{ isAluno }}" onClick="{{ pickAluno }}" style="min-height:44px;border-radius:4px;border:1px solid #1EE6AA;background:{{ alunoBtn.bg }};color:{{ alunoBtn.fg }};font:700 14px/1 'Inter',sans-serif;cursor:pointer">Quero treinar</button>
+          <button type="button" aria-pressed="{{ isVaga }}" onClick="{{ pickVaga }}" style="min-height:44px;border-radius:4px;border:1px solid #1EE6AA;background:{{ vagaBtn.bg }};color:{{ vagaBtn.fg }};font:700 14px/1 'Inter',sans-serif;cursor:pointer">Trabalhe conosco</button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <button type="button" onClick="{{ togglePlay }}" style="min-height:44px;padding:0 18px;border-radius:4px;border:none;background:#E8C428;color:#000;font:800 14px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">{{ playLabel }}</button>
+          <button type="button" onClick="{{ restart }}" style="min-height:44px;padding:0 18px;border-radius:4px;border:2px solid #E8C428;background:none;color:#E8C428;font:800 14px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">REINICIAR</button>
+          <button type="button" onClick="{{ toggleSpeed }}" style="min-height:44px;padding:0 16px;border-radius:4px;border:1px solid rgba(133,141,151,.5);background:none;color:#fff;font:700 13px/1 'JetBrains Mono',monospace;cursor:pointer">{{ speedLabel }}</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97">UNIDADE DE ORIGEM</span>
+      <div role="group" aria-label="Unidade" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button type="button" aria-pressed="{{ u1 }}" onClick="{{ pickU1 }}" style="min-height:44px;border-radius:999px;border:1.5px solid #E8C428;background:{{ u1Btn.bg }};color:{{ u1Btn.fg }};font:700 14px/1 'Inter',sans-serif;cursor:pointer">Jardim Encantado</button>
+        <button type="button" aria-pressed="{{ u2 }}" onClick="{{ pickU2 }}" style="min-height:44px;border-radius:999px;border:1.5px solid #E8C428;background:{{ u2Btn.bg }};color:{{ u2Btn.fg }};font:700 14px/1 'Inter',sans-serif;cursor:pointer">Dom Pedro I</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;padding-top:6px;border-top:1px solid rgba(133,141,151,.25)">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#1EE6AA">A IA FAZ</span>
+        <ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45">
+          <li>Responde na hora, 24 horas</li>
+          <li>Explica planos, horário e endereços</li>
+          <li>Envia a localização da unidade</li>
+          <li>Agenda visita e passa para a equipe</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#E8C428">A IA NÃO FAZ</span>
+        <ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45">
+          <li>Inventar preço ou promoção</li>
+          <li>Prometer resultado</li>
+          <li>Montar treino ou dieta</li>
+          <li>Fingir que é uma pessoa</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin:0;display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#fff"><span style="flex:none;background:#FF2BD6;color:#000;font:700 11px/1.6 'JetBrains Mono',monospace;padding:1px 6px;border-radius:3px">PENDENTE-CLIENTE</span><span>Dados que a academia precisa fornecer antes de ligar a IA: tabela de preços e equipe.</span></p>
+
+    <a href="Sport Center v3.dc.html" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%;letter-spacing:.03em">← VOLTAR AO SITE</a>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode: 'demo', scenario: 'aluno', unidade: 'jardim', plano: 'Anual', msgs: [], typing: false, playing: false, speed: 1, step: 0, draft: '', busy: false, chosen: {} };
+
+  UNITS = {
+    jardim: { nome: 'Jardim Encantado', addr: 'Av. Transamazônica, 1151 — Jardim Encantado, São José da Lapa — MG, 33350-000', map: 'https://www.google.com/maps/search/?api=1&query=Av.+Transamaz%C3%B4nica%2C+1151%2C+Jardim+Encantado%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+MG' },
+    dompedro: { nome: 'Dom Pedro I', addr: 'Av. João Alves da Costa, 497 — Dom Pedro I, São José da Lapa — MG, 33350-000', map: 'https://www.google.com/maps/search/?api=1&query=Av.+Jo%C3%A3o+Alves+da+Costa%2C+497%2C+Dom+Pedro+I%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+MG' },
+  };
+
+  componentDidMount() {
+    const q = new URLSearchParams(location.search);
+    const unidade = q.get('unidade') === 'dompedro' ? 'dompedro' : 'jardim';
+    const scenario = q.get('assunto') === 'trabalhe' ? 'vaga' : 'aluno';
+    const plano = q.get('plano') || 'Anual';
+    this.firstText = q.get('texto') || null;
+    this.clock = new Date();
+    this.setState({ unidade, scenario, plano }, () => this.restart(true));
+  }
+  componentWillUnmount() { clearTimeout(this.t); }
+  componentDidUpdate() { if (this.scrollEl) this.scrollEl.scrollTop = this.scrollEl.scrollHeight; }
+
+  time() {
+    this.clock = new Date(this.clock.getTime() + 25000);
+    return String(this.clock.getHours()).padStart(2, '0') + ':' + String(this.clock.getMinutes()).padStart(2, '0');
+  }
+  opening() {
+    const u = this.UNITS[this.state.unidade];
+    if (this.firstText) return this.firstText;
+    return this.state.scenario === 'vaga'
+      ? `Olá! Vim pelo site da Sport Center e tenho interesse em trabalhar com vocês. Unidade de preferência: ${u.nome}.`
+      : `Olá! Vim pelo site da Sport Center e quero saber sobre o plano ${this.state.plano}. Unidade: ${u.nome}.`;
+  }
+
+  script() {
+    const u = this.UNITS[this.state.unidade];
+    const p = this.state.plano;
+    if (this.state.scenario === 'vaga') return [
+      { from: 'c', text: this.opening() },
+      { from: 'ia', text: `Oi! Aqui é a assistente virtual da Sport Center. Que bom que você quer fazer parte da equipe. Me conta: qual função te interessa e qual sua formação?` },
+      { from: 'c', text: 'Sou formado em Educação Física, com CREF ativo. Tenho interesse em ser instrutor.' },
+      { from: 'ia', text: `Ótimo. Pode me enviar seu currículo em PDF por aqui? Vou encaminhar para a gestão da unidade ${u.nome}.` },
+      { from: 'c', text: '', file: 'curriculo.pdf' },
+      { from: 'ia', text: 'Recebido, obrigada! A equipe analisa e entra em contato por este número se houver vaga compatível com o seu perfil.' },
+      { from: 'sys', text: 'Currículo encaminhado para a gestão da unidade' },
+    ];
+    return [
+      { from: 'c', text: this.opening() },
+      { from: 'ia', text: `Oi! Aqui é a assistente virtual da Sport Center. Que bom que você veio pelo site. Posso te ajudar com o plano ${p} na unidade ${u.nome}. Sobre o que você quer saber?`, options: ['Planos e valores', 'Endereço', 'Horário', 'Falar com atendente'], pick: 0 },
+      { from: 'c', text: 'Planos e valores' },
+      { from: 'ia', text: `Temos três planos: Mensal, Trimestral e Anual. O plano ${p} sai por [VALOR DO PLANO · PENDENTE-CLIENTE].\n\nTodos incluem acesso 24 horas, livre trânsito nas duas unidades, estrutura completa e suporte profissional.` },
+      { from: 'c', text: 'Abre de madrugada mesmo?' },
+      { from: 'ia', text: 'Abre sim. A Sport Center funciona 24 horas, todos os dias. É a única academia 24 horas de São José da Lapa, então você treina no horário que encaixar na sua rotina.' },
+      { from: 'c', text: 'Onde fica?' },
+      { from: 'ia', text: `A unidade ${u.nome} fica aqui:`, card: true },
+      { from: 'c', text: 'E quem são os instrutores?' },
+      { from: 'ia', text: 'A equipe da unidade é esta: [NOMES E HORÁRIOS DA EQUIPE · PENDENTE-CLIENTE].\n\nSe quiser, agendo uma visita para você conhecer o espaço e o pessoal antes de fechar o plano.' },
+      { from: 'c', text: 'Quero conhecer amanhã à noite.' },
+      { from: 'ia', text: `Combinado! Vou passar para a equipe da unidade ${u.nome} confirmar sua visita amanhã à noite. Qual é o seu nome?` },
+      { from: 'c', text: 'Mariana.' },
+      { from: 'ia', text: 'Obrigada, Mariana! Um atendente da equipe confirma a visita por aqui. Até logo!' },
+      { from: 'sys', text: 'Conversa transferida para a equipe da unidade' },
+    ];
+  }
+
+  mkMsg(step) {
+    const u = this.UNITS[this.state.unidade];
+    return { ...step, id: Math.random().toString(36).slice(2), time: this.time(), cardTitle: 'Sport Center · ' + u.nome, cardAddr: u.addr, cardHref: u.map };
+  }
+
+  restart(auto) {
+    clearTimeout(this.t);
+    this.clock = new Date();
+    if (this.state.mode === 'live') {
+      this.setState({ msgs: [this.mkMsg({ from: 'c', text: this.opening() })], typing: true, playing: false, step: 0, chosen: {}, busy: true }, () => this.liveReply());
+      return;
+    }
+    this.setState({ msgs: [], typing: false, step: 0, chosen: {}, playing: auto !== false }, () => { if (this.state.playing) this.tick(); });
+  }
+
+  tick() {
+    clearTimeout(this.t);
+    if (!this.state.playing) return;
+    const steps = this.script();
+    const i = this.state.step;
+    if (i >= steps.length) { this.setState({ playing: false }); return; }
+    const st = steps[i];
+    const sp = this.state.speed;
+    if (st.from === 'ia') {
+      this.setState({ typing: true });
+      const dur = Math.min(2600, 700 + st.text.length * 14) / sp;
+      this.t = setTimeout(() => {
+        this.setState((s) => ({ typing: false, msgs: [...s.msgs, this.mkMsg(st)], step: s.step + 1 }), () => { this.t = setTimeout(() => this.tick(), 900 / sp); });
+      }, dur);
+    } else {
+      const wait = (i === 0 ? 500 : 1300) / sp;
+      this.t = setTimeout(() => {
+        const prev = steps[i - 1];
+        this.setState((s) => ({ msgs: [...s.msgs, this.mkMsg(st)], step: s.step + 1, chosen: prev && prev.options ? { ...s.chosen, [s.msgs.length - 1]: prev.pick } : s.chosen }), () => { this.t = setTimeout(() => this.tick(), 500 / sp); });
+      }, wait);
+    }
+  }
+
+  SYSTEM() {
+    const u = this.UNITS[this.state.unidade];
+    return [
+      'Você é a assistente virtual da Sport Center — Centro de Treinamento, respondendo clientes no WhatsApp da academia. Fale em português do Brasil, tom acolhedor, direto, mensagens curtas como no WhatsApp (até 3 frases). Sem emojis e sem markdown.',
+      'FATOS (use somente estes): musculação e fisiculturismo; aberta 24 horas, todos os dias; é a única academia 24 horas de São José da Lapa.',
+      'Unidade Jardim Encantado: Av. Transamazônica, 1151 — Jardim Encantado, São José da Lapa — MG. Unidade Dom Pedro I: Av. João Alves da Costa, 497 — Dom Pedro I, São José da Lapa — MG.',
+      'Planos: Mensal, Trimestral e Anual. Todos com acesso 24 horas, livre trânsito nas duas unidades, estrutura completa e suporte profissional. Instagram @sportcenter.ct.',
+      'DADOS AINDA NÃO FORNECIDOS: quando perguntarem preço, escreva exatamente [VALOR DO PLANO · PENDENTE-CLIENTE]. Quando perguntarem nomes ou horários de instrutores, escreva exatamente [NOMES E HORÁRIOS DA EQUIPE · PENDENTE-CLIENTE]. Para qualquer outro dado desconhecido (promoções, aulas específicas, estacionamento etc.), escreva [INFORMAÇÃO · PENDENTE-CLIENTE] e ofereça passar para a equipe.',
+      'Você pode oferecer agendar uma visita e dizer que a equipe da unidade confirma. Você pode transferir para atendimento humano quando pedirem.',
+      'REGRAS: nunca invente valores, telefones, nomes, números de alunos ou prêmios. Nunca prometa resultado físico. Não monte treino, dieta nem dê orientação médica. Não compare com outras academias além de ser a única 24h da cidade. Se perguntarem se você é humana, diga que é assistente virtual. Nunca use "sem desculpas", "não pare", "o ferro é real".',
+      'Unidade de origem do cliente: ' + u.nome + '.',
+    ].join('\n');
+  }
+
+  async liveReply() {
+    const history = this.state.msgs.filter((m) => m.from === 'c' || m.from === 'ia');
+    let reply;
+    try {
+      reply = await window.claude.complete({ system: this.SYSTEM(), messages: history.map((m) => ({ role: m.from === 'c' ? 'user' : 'assistant', content: m.text })), max_tokens: 300 });
+    } catch (e) {
+      reply = 'Não consegui responder agora. Vou passar sua mensagem para a equipe da unidade.';
+    }
+    const clean = String(reply || '').replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, '').replace(/\*\*/g, '').trim();
+    this.setState((s) => ({ typing: false, busy: false, msgs: [...s.msgs, this.mkMsg({ from: 'ia', text: clean })] }));
+  }
+
+  sendLive(text) {
+    const q = String(text || '').trim();
+    if (!q || this.state.busy) return;
+    this.setState((s) => ({ draft: '', busy: true, typing: true, msgs: [...s.msgs, this.mkMsg({ from: 'c', text: q })] }), () => this.liveReply());
+  }
+
+  segs(text) {
+    return String(text || '').split(/(\[[^\]]*PENDENTE[^\]]*\])/).filter(Boolean).map((t) => ({ t, ph: /PENDENTE/.test(t) && t.startsWith('['), txt: !(/PENDENTE/.test(t) && t.startsWith('[')) }));
+  }
+
+  renderVals() {
+    const { mode, scenario, unidade, msgs, typing, playing, speed, draft, busy, chosen } = this.state;
+    const live = mode === 'live';
+    const on = (a) => a ? { bg: '#E8C428', fg: '#000' } : { bg: 'none', fg: '#E8C428' };
+    const onG = (a) => a ? { bg: '#1EE6AA', fg: '#000' } : { bg: 'none', fg: '#1EE6AA' };
+    const reset = (patch) => this.setState(patch, () => this.restart(true));
+    return {
+      msgs: msgs.map((m, idx) => {
+        const c = m.from === 'c';
+        return {
+          ...m,
+          isSys: m.from === 'sys', isMsg: m.from !== 'sys', isC: c,
+          align: c ? 'flex-end' : 'flex-start',
+          bg: c ? '#10392E' : '#1A1D21',
+          border: c ? '1px solid rgba(30,230,170,.25)' : '1px solid rgba(133,141,151,.18)',
+          radius: c ? '12px 4px 12px 12px' : '4px 12px 12px 12px',
+          segs: this.segs(m.text),
+          hasFile: !!m.file, fileName: m.file,
+          hasCard: !!m.card,
+          hasOptions: !!m.options,
+          options: (m.options || []).map((label, oi) => {
+            const picked = chosen[idx] === oi;
+            const done = chosen[idx] !== undefined;
+            return { label, disabled: done || !live, border: picked ? '#1EE6AA' : 'rgba(30,230,170,.35)', bg: picked ? 'rgba(30,230,170,.18)' : '#101316', on: () => { if (!live || done) return; this.setState((s) => ({ chosen: { ...s.chosen, [idx]: oi } })); this.sendLive(label); } };
+          }),
+        };
+      }),
+      typing,
+      statusText: typing ? 'digitando…' : 'assistente virtual · online 24h',
+      statusColor: typing ? '#1EE6AA' : '#9AA3AD',
+      scrollRef: (el) => { this.scrollEl = el; },
+      draft,
+      onDraft: (e) => this.setState({ draft: e.target.value }),
+      send: (e) => { e.preventDefault(); if (live) this.sendLive(this.state.draft); },
+      inputDisabled: !live || busy,
+      inputPlaceholder: live ? 'Escreva como cliente' : 'Modo exemplo: só assistir',
+      isDemo: !live, isLive: live,
+      demoBtn: on(!live), liveBtn: on(live),
+      pickDemo: () => reset({ mode: 'demo' }),
+      pickLive: () => reset({ mode: 'live' }),
+      isAluno: scenario === 'aluno', isVaga: scenario === 'vaga',
+      alunoBtn: onG(scenario === 'aluno'), vagaBtn: onG(scenario === 'vaga'),
+      pickAluno: () => { this.firstText = null; reset({ scenario: 'aluno' }); },
+      pickVaga: () => { this.firstText = null; reset({ scenario: 'vaga' }); },
+      playLabel: playing ? 'PAUSAR' : (this.state.step > 0 && this.state.step < this.script().length ? 'CONTINUAR' : 'REPRODUZIR'),
+      togglePlay: () => {
+        if (playing) { clearTimeout(this.t); this.setState({ playing: false, typing: false }); return; }
+        if (this.state.step >= this.script().length) { this.restart(true); return; }
+        this.setState({ playing: true }, () => this.tick());
+      },
+      restart: () => this.restart(true),
+      speedLabel: speed === 1 ? 'VELOCIDADE 1×' : 'VELOCIDADE 2×',
+      toggleSpeed: () => this.setState({ speed: speed === 1 ? 2 : 1 }),
+      u1: unidade === 'jardim', u2: unidade === 'dompedro',
+      u1Btn: on(unidade === 'jardim'), u2Btn: on(unidade === 'dompedro'),
+      pickU1: () => { this.firstText = null; reset({ unidade: 'jardim' }); },
+      pickU2: () => { this.firstText = null; reset({ unidade: 'dompedro' }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

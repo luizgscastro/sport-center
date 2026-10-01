@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Sport Center — Centro de Treinamento · A única academia 24 horas de São José da Lapa (v4)</title>
+<meta name="description" content="Sport Center — Centro de Treinamento. A única academia 24 horas de São José da Lapa — MG. Musculação e fisiculturismo em duas unidades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"ExerciseGym","name":"Sport Center — Centro de Treinamento · Unidade Jardim Encantado","address":{"@type":"PostalAddress","streetAddress":"Av. Transamazônica, 1151","addressLocality":"São José da Lapa","addressRegion":"MG","postalCode":"33350-000","addressCountry":"BR"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/sportcenter.ct/"]},{"@context":"https://schema.org","@type":"ExerciseGym","name":"Sport Center — Centro de Treinamento · Unidade Dom Pedro I","address":{"@type":"PostalAddress","streetAddress":"Av. João Alves da Costa, 497","addressLocality":"São José da Lapa","addressRegion":"MG","postalCode":"33350-000","addressCountry":"BR"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/sportcenter.ct/"]}]</script>
+<style>
+html{scroll-behavior:smooth;color-scheme:dark;background:#000}
+body{margin:0;background:#000;color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#E8C428;text-decoration:none}
+a:hover{color:#F4D75A}
+:focus-visible{outline:3px solid #E8C428;outline-offset:3px}
+select option{background:#0B0D0F;color:#fff}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:300;opacity:.08;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@keyframes scOverlay{0%,86%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes scCharge{0%,6%{clip-path:inset(100% 0 0 0)}48%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes scBoltLoad{0%,4%{opacity:0}8%{opacity:1}44%{transform:translate(0,0)}45%{transform:translate(-2px,1px)}46%{transform:translate(2px,-1px)}47%{transform:translate(-1px,-2px)}48%{transform:translate(2px,2px)}50%{opacity:1;transform:none}58%,100%{opacity:0}}
+@keyframes scBar{0%,6%{transform:scaleX(0);opacity:1}48%{transform:scaleX(1);opacity:1}54%,100%{transform:scaleX(1);opacity:0}}
+@keyframes scLoadTxt{0%,4%{opacity:0}8%,48%{opacity:1}52%,100%{opacity:0}}
+@keyframes scSym{0%,50%{opacity:0;transform:scale(1.18)}52%{opacity:1}55%{opacity:.35}58%{opacity:1}61%{opacity:.6}64%,100%{opacity:1;transform:scale(1)}}
+@keyframes scFlash{0%,49%{opacity:0;transform:translate(-50%,-50%) scale(.3)}52%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}72%,100%{opacity:0;transform:translate(-50%,-50%) scale(2.2)}}
+@keyframes scWhite{0%,50%{opacity:0}52%{opacity:.75}64%,100%{opacity:0}}
+@keyframes scRing{0%,50%{opacity:0;transform:translate(-50%,-50%) scale(.15)}53%{opacity:.9}84%,100%{opacity:0;transform:translate(-50%,-50%) scale(5)}}
+@keyframes scBrand{0%,60%{opacity:0;transform:translateY(14px);letter-spacing:.3em}72%,100%{opacity:1;transform:none;letter-spacing:-.01em}}
+@keyframes scBrandSub{0%,66%{opacity:0}78%,100%{opacity:1}}
+@keyframes scZap{0%{stroke-dashoffset:1;opacity:1}38%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes scZapFlash{0%{opacity:0}12%{opacity:.22}100%{opacity:0}}
+@keyframes scScan{0%{transform:translateY(-10vh);opacity:0}10%{opacity:1}100%{transform:translateY(110vh);opacity:0}}
+@keyframes scRun{0%{transform:translateX(-240px)}100%{transform:translateX(calc(100vw + 240px))}}
+@keyframes scShine{0%,72%{background-position:130% 0}100%{background-position:-30% 0}}
+@keyframes scShineNow{0%{background-position:130% 0;opacity:1}100%{background-position:-30% 0;opacity:1}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+#avatar-mulher::part(empty),#avatar-homem::part(empty){opacity:0}
+#avatar-mulher::part(frame),#avatar-homem::part(frame){background:transparent}
+#avatar-mulher::part(ring),#avatar-homem::part(ring){opacity:0}
+@keyframes scTalk{0%,100%{box-shadow:0 0 0 0 rgba(30,230,170,.55)}50%{box-shadow:0 0 0 8px rgba(30,230,170,0)}}
+@keyframes scDots{0%,80%,100%{opacity:.25}40%{opacity:1}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="position:relative;background:#000;color:#fff;overflow-x:clip">
+
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#000">
+    <sc-if value="{{ bgVideo }}" hint-placeholder-val="{{ true }}"><video ref="{{ videoRef }}" src="{{ videoSrc }}" poster="assets/frame-1.jpg" autoPlay="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ videoOpacity }};filter:contrast(1.15) saturate(.95)"></video></sc-if>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 35%,rgba(0,0,0,.45) 70%,rgba(0,0,0,.85) 100%),radial-gradient(ellipse 90% 80% at 50% 45%,rgba(0,0,0,0) 40%,rgba(0,0,0,.7) 100%)"></div>
+  </div>
+
+  <a href="#conteudo" style="position:absolute;left:12px;top:-60px;z-index:100;background:#E8C428;color:#000;padding:12px 16px;font-weight:700" style-focus="top:12px">Pular para o conteúdo</a>
+
+  <header style="position:fixed;top:0;left:0;right:0;z-index:60;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 clamp(16px,4vw,48px);background:rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,230,170,.14)">
+    <a href="#inicio" aria-label="Sport Center — Centro de Treinamento, início" style="display:flex;align-items:center;gap:10px;min-height:44px">
+      <span onMouseEnter="{{ logoZap }}" onFocus="{{ logoZap }}" style="position:relative;display:block;height:40px">
+        <img src="assets/logo-sc.png" alt="" width="110" height="40" style="height:40px;width:auto;display:block">
+        {{ logoFx }}
+      </span>
+      <sc-if value="{{ phHeader }}" hint-placeholder-val="{{ true }}">
+        <span style="background:#FF2BD6;color:#000;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.04em;padding:4px 6px;border-radius:2px;white-space:nowrap">PLACEHOLDER · LOGO VETORIAL</span>
+      </sc-if>
+    </a>
+    <div role="group" aria-label="Escolher unidade" style="display:flex;align-items:center;gap:6px">
+      <sc-if value="{{ showUnitLabel }}" hint-placeholder-val="{{ true }}">
+        <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97;margin-right:6px">UNIDADE</span>
+      </sc-if>
+      <button type="button" aria-pressed="{{ u1Sel }}" onClick="{{ pickJardim }}" style="min-height:44px;padding:0 clamp(10px,1.4vw,18px);border-radius:999px;border:1.5px solid #E8C428;background:{{ u1Btn.bg }};color:{{ u1Btn.fg }};font:700 clamp(12px,1.1vw,14px)/1 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s">
+        <sc-if value="{{ longUnits }}" hint-placeholder-val="{{ true }}">Jardim Encantado</sc-if>
+        <sc-if value="{{ shortUnits }}" hint-placeholder-val="{{ false }}">Jardim</sc-if>
+      </button>
+      <button type="button" aria-pressed="{{ u2Sel }}" onClick="{{ pickDomPedro }}" style="min-height:44px;padding:0 clamp(10px,1.4vw,18px);border-radius:999px;border:1.5px solid #E8C428;background:{{ u2Btn.bg }};color:{{ u2Btn.fg }};font:700 clamp(12px,1.1vw,14px)/1 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s">
+        <sc-if value="{{ longUnits }}" hint-placeholder-val="{{ true }}">Dom Pedro I</sc-if>
+        <sc-if value="{{ shortUnits }}" hint-placeholder-val="{{ false }}">Dom Pedro</sc-if>
+      </button>
+    </div>
+    {{ headerRun }}
+  </header>
+
+  <main id="conteudo" style="position:relative;z-index:1">
+
+    <section id="inicio" data-screen-label="Hero" style="position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px {{ padR }} clamp(72px,10vh,110px) clamp(20px,5vw,80px)">
+      <div style="position:relative;z-index:1;pointer-events:none;width:100%;max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(20px,3vh,30px)">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+          <div style="display:inline-flex;align-items:stretch;border:1.5px solid #E8C428;border-radius:2px;background:rgba(0,0,0,.6)">
+            <div style="display:flex;align-items:center;gap:4px;padding:6px 14px 6px 12px;background:linear-gradient(135deg,#FFE24A,#E8C428 45%,#A87810);color:#000">
+              <span style="font:900 40px/1 'Archivo',sans-serif;font-stretch:66%;letter-spacing:-.02em">24H</span>
+              <svg width="14" height="28" viewBox="0 0 40 100" aria-hidden="true"><polygon points="26,0 6,56 20,56 12,100 36,38 22,38 32,0" fill="#000"></polygon></svg>
+            </div>
+            <div style="display:flex;flex-direction:column;justify-content:center;gap:5px;padding:6px 14px">
+              <span style="font:800 17px/1 'Archivo',sans-serif;font-stretch:80%;letter-spacing:.02em">TODOS OS DIAS</span>
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;color:#858D97;letter-spacing:.06em">AGORA {{ clock }} · ABERTA</span>
+            </div>
+          </div>
+          <sc-if value="{{ ph }}" hint-placeholder-val="{{ true }}">
+            <span style="border:1px solid #FF2BD6;color:#FF7AE6;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.06em;padding:5px 7px;border-radius:2px">COPY PROVISÓRIA</span>
+          </sc-if>
+        </div>
+
+        <h1 style="margin:0;padding-top:.08em;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:64%;text-transform:uppercase;letter-spacing:-.025em;line-height:.88;font-size:{{ h1Size }};max-width:{{ h1Max }};display:flex;flex-direction:column;color:#F6EEE2">
+          <sc-if value="{{ hl.seu }}" hint-placeholder-val="{{ true }}">
+            <span>Seu horário.</span>
+            <span>Seu treino.</span>
+            <span style="color:#1EE6AA;text-shadow:0 0 24px rgba(30,230,170,.55),0 0 80px rgba(30,230,170,.28)">24 horas.</span>
+          </sc-if>
+          <sc-if value="{{ hl.treine }}" hint-placeholder-val="{{ false }}">
+            <span>Treine</span>
+            <span>a qualquer hora.</span>
+            <span style="color:#1EE6AA;text-shadow:0 0 24px rgba(30,230,170,.55),0 0 80px rgba(30,230,170,.28)">24h aberto.</span>
+          </sc-if>
+          <sc-if value="{{ hl.aberto }}" hint-placeholder-val="{{ false }}">
+            <span>Aberto</span>
+            <span>24 horas.</span>
+            <span style="color:#1EE6AA;text-shadow:0 0 24px rgba(30,230,170,.55),0 0 80px rgba(30,230,170,.28)">Todos os dias.</span>
+          </sc-if>
+        </h1>
+
+        <p style="margin:0;display:flex;align-items:center;gap:12px;font:800 clamp(18px,1.8vw,24px)/1.2 'Archivo',sans-serif;font-stretch:80%;text-transform:uppercase;letter-spacing:.01em;color:#fff;text-wrap:balance">
+          <svg width="14" height="30" viewBox="0 0 40 100" aria-hidden="true" style="flex:none"><polygon points="26,0 6,56 20,56 12,100 36,38 22,38 32,0" fill="#E8C428"></polygon></svg>
+          <span>A única academia 24 horas de São José da Lapa.</span>
+        </p>
+
+        <div style="pointer-events:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="{{ c.hero.href }}" onClick="{{ c.hero.on }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;background:#E8C428;color:#000;border-radius:2px;font:800 17px/1 'Archivo',sans-serif;font-stretch:85%;letter-spacing:.03em;transition:box-shadow .2s,background .2s" style-hover="background:#F4D75A;color:#000;box-shadow:0 0 28px rgba(232,196,40,.45)">QUERO COMEÇAR <span aria-hidden="true">→</span></a>
+            <a href="#academia" style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border:2px solid #E8C428;color:#E8C428;background:rgba(0,0,0,.35);border-radius:2px;font:800 17px/1 'Archivo',sans-serif;font-stretch:85%;letter-spacing:.03em;transition:background .2s" style-hover="background:rgba(232,196,40,.12);color:#F4D75A">VER PLANOS</a>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <sc-if value="{{ phVideo }}" hint-placeholder-val="{{ false }}">
+              <span style="background:#FF2BD6;color:#000;font:700 10px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;padding:5px 7px;border-radius:2px;max-width:200px">PLACEHOLDER · VÍDEO VERTICAL NO DESKTOP, TROCAR PELO 16:9</span>
+            </sc-if>
+            <button type="button" onClick="{{ toggleSound }}" aria-pressed="{{ soundOn }}" aria-label="{{ soundLabel }}" style="display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px 0 12px;border-radius:999px;background:rgba(0,0,0,.6);border:1px solid rgba(30,230,170,.7);color:#fff;cursor:pointer;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.08em" style-hover="background:rgba(30,230,170,.16)">
+              <sc-if value="{{ muted }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"></path><path d="m22 9-6 6M16 9l6 6"></path></svg></sc-if>
+              <sc-if value="{{ soundOn }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"></path></svg></sc-if>
+              <span>{{ soundStatus }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <sc-if value="{{ showAvatar }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:0;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.55) 32%,#000 52%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 14%,#000 82%,rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.55) 32%,#000 52%),linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 14%,#000 82%,rgba(0,0,0,0) 100%);mask-composite:intersect">
+          <iframe ref="{{ avatarRef }}" src="{{ avatarSrc }}" onLoad="{{ avatarLoaded }}" title="Avatar 3D da Sport Center. Arraste para girar." style="display:block;width:100%;height:100%;border:0;background:#000;opacity:.92"></iframe>
+        </div>
+        <div style="position:absolute;left:64%;bottom:clamp(18px,3vh,34px);transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:14px">
+          <button type="button" onClick="{{ avatarNext }}" disabled="{{ avatarBusy }}" aria-label="Trocar o exercício do avatar 3D" style="width:60px;height:60px;flex:none;border-radius:50%;border:2px solid #E8C428;background:radial-gradient(circle at 50% 40%,#1a1d10,#050607 70%);color:#E8C428;font:900 24px/1 'Archivo',sans-serif;font-stretch:72%;cursor:pointer;box-shadow:0 0 18px rgba(232,196,40,.3);transition:box-shadow .2s" style-hover="box-shadow:0 0 30px rgba(232,196,40,.6)">3D</button>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span aria-live="polite" style="font:800 20px/1 'Archivo',sans-serif;font-stretch:78%;text-transform:uppercase;color:#F6EEE2;white-space:nowrap">{{ avatarEx.name }}</span>
+            <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#858D97;white-space:nowrap">{{ avatarEx.count }} · ARRASTE PARA GIRAR</span>
+          </div>
+        </div>
+      </sc-if>
+      <a href="#academia" aria-label="Ir para a próxima seção" style="position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;min-height:44px;padding:0 10px;color:#858D97;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.2em">ROLE <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section id="academia" data-screen-label="Academia" style="position:relative;overflow:hidden;scroll-margin-top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2.4vh,28px);padding:96px {{ padR }} clamp(28px,4vh,48px) clamp(16px,5vw,80px);background:#000">
+      <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 80%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 80%,rgba(0,0,0,0) 100%)">
+        <sc-if value="{{ sectionVideo }}" hint-placeholder-val="{{ true }}"><video ref="{{ videoRef }}" src="{{ videoSrc }}" poster="assets/frame-1.jpg" autoPlay="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:.34;filter:contrast(1.2) saturate(.9) blur(1.5px)"></video></sc-if>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 30% 45%,rgba(0,0,0,.55),rgba(0,0,0,.15) 70%),linear-gradient(90deg,rgba(0,0,0,.35),rgba(0,0,0,0) 40%,rgba(0,0,0,.35))"></div>
+      </div>
+      <div style="position:relative;z-index:1;width:100%;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:{{ acadCols }};gap:clamp(24px,4vw,64px);align-items:center">
+
+        <figure style="position:relative;margin:0;min-width:0">
+          <div aria-hidden="true" style="position:absolute;left:6%;right:6%;top:4%;bottom:8%;background:radial-gradient(ellipse at 50% 55%,rgba(30,230,170,.6),rgba(30,230,170,.2) 45%,rgba(30,230,170,0) 72%);filter:blur(46px)"></div>
+          <img src="assets/equipe.jpg" alt="Equipe Sport Center reunida, de braços cruzados, com a camisa do CT" width="1179" height="768" loading="lazy" style="position:relative;display:block;width:100%;height:auto;max-height:58vh;object-fit:contain;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.3) 0%,#000 9%,#000 82%,rgba(0,0,0,0) 100%),radial-gradient(ellipse 70% 92% at 50% 50%,#000 62%,rgba(0,0,0,.15) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,rgba(0,0,0,.3) 0%,#000 9%,#000 82%,rgba(0,0,0,0) 100%),radial-gradient(ellipse 70% 92% at 50% 50%,#000 62%,rgba(0,0,0,.15) 100%);mask-composite:intersect;filter:contrast(1.08)">
+          <sc-if value="{{ ph }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:0;top:0;background:#FF2BD6;color:#000;font:700 10px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;padding:5px 7px;border-radius:2px;max-width:250px">PLACEHOLDER · PEDIR FOTO ORIGINAL SEM A ARTE "Nº 01" E PNG RECORTADO</span></sc-if>
+        </figure>
+
+        <div style="display:flex;flex-direction:column;gap:clamp(16px,2.2vh,24px);min-width:0">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+            <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#858D97">02 — A ACADEMIA</span>
+            <sc-if value="{{ ph }}" hint-placeholder-val="{{ true }}"><span style="border:1px solid #FF2BD6;color:#FF7AE6;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.06em;padding:5px 7px;border-radius:2px">COPY PROVISÓRIA</span></sc-if>
+          </div>
+          <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:66%;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;font-size:clamp(42px,4.6vw,76px);color:#F6EEE2">Quem faz acontecer</h2>
+          <p style="margin:0;font-size:clamp(16px,1.2vw,18px);line-height:1.55;color:#fff;max-width:44ch;text-wrap:pretty">Musculação e fisiculturismo, aberta 24 horas, em duas unidades em São José da Lapa.</p>
+          <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px 20px">
+            <sc-for list="{{ beneficios }}" as="b" hint-placeholder-count="4"><li style="display:flex;align-items:center;gap:10px;font-size:15px;line-height:1.35"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1EE6AA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><span>{{ b }}</span></li></sc-for>
+          </ul>
+
+          <div role="radiogroup" aria-label="Escolha o plano" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:4px">
+            <button type="button" role="radio" aria-checked="{{ p.mensal.sel }}" onClick="{{ p.mensal.pick }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:84px;padding:14px;background:{{ p.mensal.bg }};border:{{ p.mensal.border }};border-radius:4px;color:#fff;cursor:pointer;text-align:left">
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#858D97">PLANO</span>
+              <span style="font:900 clamp(24px,2.2vw,32px)/.9 'Archivo',sans-serif;font-stretch:66%">MENSAL</span>
+            </button>
+            <button type="button" role="radio" aria-checked="{{ p.trimestral.sel }}" onClick="{{ p.trimestral.pick }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:84px;padding:14px;background:{{ p.trimestral.bg }};border:{{ p.trimestral.border }};border-radius:4px;color:#fff;cursor:pointer;text-align:left">
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#858D97">PLANO</span>
+              <span style="font:900 clamp(24px,2.2vw,32px)/.9 'Archivo',sans-serif;font-stretch:66%">TRIMESTRAL</span>
+            </button>
+            <button type="button" role="radio" aria-checked="{{ p.anual.sel }}" onClick="{{ p.anual.pick }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:84px;padding:14px;background:{{ p.anual.bg }};border:{{ p.anual.border }};box-shadow:0 0 32px rgba(232,196,40,.22);border-radius:4px;color:#fff;cursor:pointer;text-align:left">
+              <span style="font:700 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#E8C428">DESTAQUE</span>
+              <span style="font:900 clamp(24px,2.2vw,32px)/.9 'Archivo',sans-serif;font-stretch:66%;color:#E8C428">ANUAL</span>
+            </button>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px">
+            <a href="{{ planoCta.href }}" onClick="{{ planoCta.on }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;background:#E8C428;color:#000;border-radius:2px;font:800 17px/1 'Archivo',sans-serif;font-stretch:85%;letter-spacing:.02em" style-hover="background:#F4D75A;color:#000;box-shadow:0 0 28px rgba(232,196,40,.45)">Clique aqui e confira</a>
+            <span style="font:500 12px/1.4 'JetBrains Mono',monospace;letter-spacing:.06em;color:#858D97">PLANO {{ planoCaps }} · VALORES PELO WHATSAPP</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;width:100%;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px">
+          <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#858D97">ESTRUTURA</span>
+          <sc-if value="{{ ph }}" hint-placeholder-val="{{ true }}"><span style="background:#FF2BD6;color:#000;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.04em;padding:5px 7px;border-radius:2px">PLACEHOLDER · FRAMES DO VÍDEO, TROCAR POR FOTOS DOS EQUIPAMENTOS</span></sc-if>
+        </div>
+        <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:clamp(8px,1vw,14px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px">
+          <figure style="position:relative;margin:0;height:clamp(110px,16vh,170px);overflow:hidden;border-radius:4px;background:#050606;scroll-snap-align:start">
+            <img src="assets/frame-5.jpg" alt="Racks de halteres no salão" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:grayscale(.55) contrast(1.3) brightness(.85)">
+            <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,230,170,.4),inset 0 0 20px rgba(30,230,170,.14)"></div>
+          </figure>
+          <figure style="position:relative;margin:0;height:clamp(110px,16vh,170px);overflow:hidden;border-radius:4px;background:#050606;scroll-snap-align:start">
+            <img src="assets/frame-1.jpg" alt="Entrada do CT com luzes verdes no teto" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 60%;filter:grayscale(.55) contrast(1.3) brightness(.85)">
+            <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,230,170,.4),inset 0 0 20px rgba(30,230,170,.14)"></div>
+          </figure>
+          <figure style="position:relative;margin:0;height:clamp(110px,16vh,170px);overflow:hidden;border-radius:4px;background:#050606;scroll-snap-align:start">
+            <img src="assets/frame-6.jpg" alt="Corredor central do salão com equipamentos" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 62%;filter:grayscale(.55) contrast(1.3) brightness(.85)">
+            <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,230,170,.4),inset 0 0 20px rgba(30,230,170,.14)"></div>
+          </figure>
+          <figure style="position:relative;margin:0;height:clamp(110px,16vh,170px);overflow:hidden;border-radius:4px;background:#050606;scroll-snap-align:start">
+            <img src="assets/frame-7.jpg" alt="Equipamentos na lateral do salão" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 72%;filter:grayscale(.55) contrast(1.3) brightness(.85)">
+            <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,230,170,.4),inset 0 0 20px rgba(30,230,170,.14)"></div>
+          </figure>
+          <figure style="position:relative;margin:0;height:clamp(110px,16vh,170px);overflow:hidden;border-radius:4px;background:#050606;scroll-snap-align:start">
+            <img src="assets/frame-4.jpg" alt="Teto metálico com luzes de neon" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(.55) contrast(1.3) brightness(.85)">
+            <div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,230,170,.4),inset 0 0 20px rgba(30,230,170,.14)"></div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" data-screen-label="Contato" style="position:relative;overflow:hidden;padding:clamp(90px,11vw,170px) {{ padR }} clamp(60px,7vw,100px) clamp(20px,5vw,80px);background:rgba(0,0,0,.86);border-top:1px solid rgba(30,230,170,.14)">
+      <div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;font:900 clamp(160px,30vw,520px)/.8 'Archivo',sans-serif;font-stretch:62%;letter-spacing:-.03em;color:rgba(30,230,170,.06);-webkit-text-stroke:1.5px rgba(30,230,170,.16);pointer-events:none;user-select:none">24 HORAS</div>
+      <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,5vw,64px)">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+            <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#858D97">03 — UNIDADES E CONTATO</span>
+            <sc-if value="{{ ph }}" hint-placeholder-val="{{ true }}"><span style="border:1px solid #FF2BD6;color:#FF7AE6;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.06em;padding:5px 7px;border-radius:2px">COPY PROVISÓRIA</span></sc-if>
+          </div>
+          <h2 style="margin:0;max-width:14ch;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:66%;text-transform:uppercase;letter-spacing:-.02em;line-height:.88;font-size:clamp(46px,6.4vw,104px);color:#F6EEE2">Aberta agora. Aberta sempre.</h2>
+          <p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:#fff">A única academia 24 horas de São José da Lapa. Duas unidades.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(14px,1.6vw,24px)">
+          <article style="display:flex;flex-direction:column;gap:22px;padding:clamp(24px,2.6vw,36px);background:rgba(7,9,10,.9);border:1px solid {{ u1Border }};box-shadow:{{ u1Glow }};border-radius:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97">UNIDADE 01</span>
+              <sc-if value="{{ u1Sel }}" hint-placeholder-val="{{ true }}"><span style="font:700 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#000;background:#1EE6AA;padding:5px 8px;border-radius:2px">SUA UNIDADE</span></sc-if>
+            </div>
+            <h3 style="margin:0;font:900 clamp(34px,3.4vw,48px)/.92 'Archivo',sans-serif;font-stretch:66%;text-transform:uppercase">Jardim Encantado</h3>
+            <address style="font-style:normal;font-size:17px;line-height:1.55;color:#fff">Av. Transamazônica, 1151<br>Jardim Encantado, São José da Lapa — MG<br><span style="color:#858D97">33350-000</span></address>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Transamaz%C3%B4nica%2C+1151%2C+Jardim+Encantado%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+MG" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:2px solid #E8C428;color:#E8C428;border-radius:2px;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%" style-hover="background:rgba(232,196,40,.12)">COMO CHEGAR</a>
+              <a href="{{ c.u1.href }}" onClick="{{ c.u1.on }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 20px;background:#E8C428;color:#000;border-radius:2px;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%" style-hover="background:#F4D75A;color:#000">FALAR COM ESTA UNIDADE</a>
+            </div>
+          </article>
+          <article style="display:flex;flex-direction:column;gap:22px;padding:clamp(24px,2.6vw,36px);background:rgba(7,9,10,.9);border:1px solid {{ u2Border }};box-shadow:{{ u2Glow }};border-radius:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.12em;color:#858D97">UNIDADE 02</span>
+              <sc-if value="{{ u2Sel }}" hint-placeholder-val="{{ false }}"><span style="font:700 12px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#000;background:#1EE6AA;padding:5px 8px;border-radius:2px">SUA UNIDADE</span></sc-if>
+            </div>
+            <h3 style="margin:0;font:900 clamp(34px,3.4vw,48px)/.92 'Archivo',sans-serif;font-stretch:66%;text-transform:uppercase">Dom Pedro I</h3>
+            <address style="font-style:normal;font-size:17px;line-height:1.55;color:#fff">Av. João Alves da Costa, 497<br>Dom Pedro I, São José da Lapa — MG<br><span style="color:#858D97">33350-000</span></address>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Jo%C3%A3o+Alves+da+Costa%2C+497%2C+Dom+Pedro+I%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+MG" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:2px solid #E8C428;color:#E8C428;border-radius:2px;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%" style-hover="background:rgba(232,196,40,.12)">COMO CHEGAR</a>
+              <a href="{{ c.u2.href }}" onClick="{{ c.u2.on }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;padding:0 20px;background:#E8C428;color:#000;border-radius:2px;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%" style-hover="background:#F4D75A;color:#000">FALAR COM ESTA UNIDADE</a>
+            </div>
+          </article>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);align-items:center">
+          <a href="{{ c.contato.href }}" onClick="{{ c.contato.on }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:18px;color:#fff" style-hover="color:#fff">
+            <span style="width:80px;height:80px;border-radius:50%;display:grid;place-items:center;background:#1EE6AA;color:#000;box-shadow:0 0 36px rgba(30,230,170,.4)">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 8.3c.2-.5.5-.6.8-.6h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .6.6 1.1 1.5 2 2.6 2.6.2.1.4.1.6 0l.7-.6c.2-.1.4-.2.6-.1l1.9.9c.3.1.4.3.4.5v.5c0 .4-.2.7-.6.9-.7.4-1.6.5-2.4.3-2.6-.8-4.7-2.9-5.5-5.5-.2-.8-.2-1.6.2-2.2z" fill="currentColor"></path></svg>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:6px">
+              <span style="font:900 28px/1 'Archivo',sans-serif;font-stretch:70%">WHATSAPP</span>
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#858D97">{{ waLabel }}</span>
+            </span>
+          </a>
+          <a href="https://www.instagram.com/sportcenter.ct/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:18px;color:#fff" style-hover="color:#fff">
+            <span style="width:80px;height:80px;border-radius:50%;display:grid;place-items:center;border:2px solid #1EE6AA;color:#1EE6AA;box-shadow:0 0 36px rgba(30,230,170,.22)">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:6px">
+              <span style="font:900 28px/1 'Archivo',sans-serif;font-stretch:70%">INSTAGRAM</span>
+              <span style="font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#858D97">@SPORTCENTER.CT</span>
+            </span>
+          </a>
+          <sc-if value="{{ waPending }}" hint-placeholder-val="{{ true }}"><span style="background:#FF2BD6;color:#000;font:700 10px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;padding:5px 7px;border-radius:2px">PLACEHOLDER · NÚMERO DO WHATSAPP PENDENTE (NEXT_PUBLIC_WHATSAPP_NUMBER)</span></sc-if>
+        </div>
+        <p id="trabalhe" style="margin:0;padding-top:20px;border-top:1px solid rgba(133,141,151,.22);display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:15px;line-height:1.5;color:#858D97">
+          <span>Quer trabalhar com a gente?</span>
+          <a href="{{ c.trabalhe.href }}" onClick="{{ c.trabalhe.on }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;color:#E8C428;font-weight:600" style-hover="color:#F4D75A">Envie seu interesse pelo WhatsApp <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <footer style="position:relative;padding:32px clamp(20px,5vw,80px) 110px;background:#000;border-top:1px solid rgba(133,141,151,.22)">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <img src="assets/logo-sc.png" alt="Sport Center — Centro de Treinamento" style="height:34px;width:auto">
+          <span style="font-size:14px;color:#858D97">© 2026 Sport Center — Centro de Treinamento · São José da Lapa — MG</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <a href="#trabalhe" style="display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid rgba(133,141,151,.4);border-radius:2px;color:#fff;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.06em" style-hover="color:#E8C428">TRABALHE CONOSCO</a>
+          <button type="button" onClick="{{ reopenConsent }}" style="min-height:44px;padding:0 14px;background:none;border:1px solid rgba(133,141,151,.4);border-radius:2px;color:#fff;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.06em;cursor:pointer">PREFERÊNCIAS DE COOKIES</button>
+          <button type="button" onClick="{{ replayIntro }}" style="min-height:44px;padding:0 14px;background:none;border:1px dashed #FF2BD6;border-radius:2px;color:#FF7AE6;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.06em;cursor:pointer">REVER ABERTURA (PROTÓTIPO)</button>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a href="{{ c.flutuante.href }}" onClick="{{ c.flutuante.on }}" target="_blank" rel="noopener" aria-label="Falar com a Sport Center no WhatsApp" style="position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:70;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#1EE6AA;color:#000;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 32px rgba(30,230,170,.5);transition:transform .2s" style-hover="color:#000;transform:scale(1.06)">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M8.6 8.3c.2-.5.5-.6.8-.6h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .6.6 1.1 1.5 2 2.6 2.6.2.1.4.1.6 0l.7-.6c.2-.1.4-.2.6-.1l1.9.9c.3.1.4.3.4.5v.5c0 .4-.2.7-.6.9-.7.4-1.6.5-2.4.3-2.6-.8-4.7-2.9-5.5-5.5-.2-.8-.2-1.6.2-2.2z" fill="currentColor"></path></svg>
+  </a>
+
+  <sc-if value="{{ teaser }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;right:calc(clamp(14px,2vw,28px) + 76px);bottom:calc(clamp(14px,2vw,28px) + 86px);z-index:71;display:flex;align-items:center;gap:8px;max-width:min(260px,calc(100vw - 120px));padding:12px 12px 12px 16px;background:#0B0D0F;border:1px solid rgba(30,230,170,.6);border-radius:14px 14px 4px 14px;box-shadow:0 0 24px rgba(30,230,170,.2)">
+      <button type="button" onClick="{{ openChat }}" style="background:none;border:none;padding:0;color:#fff;font:500 14px/1.4 'Inter',sans-serif;text-align:left;cursor:pointer">{{ teaserText }}</button>
+      <button type="button" onClick="{{ hideTeaser }}" aria-label="Fechar aviso" style="flex:none;width:32px;height:32px;display:grid;place-items:center;background:none;border:none;color:#858D97;font-size:18px;cursor:pointer">×</button>
+    </div>
+  </sc-if>
+
+  <button type="button" onClick="{{ toggleChat }}" aria-expanded="{{ chatOpen }}" aria-controls="assistente" aria-label="{{ launcherLabel }}" style="position:fixed;right:clamp(14px,2vw,28px);bottom:calc(clamp(14px,2vw,28px) + 76px);z-index:72;width:62px;height:62px;padding:0;border-radius:50%;border:2px solid #1EE6AA;background:#0B0D0F;cursor:pointer;overflow:visible;animation:{{ talkAnim }}">
+    <span style="position:absolute;inset:3px;border-radius:50%;overflow:hidden;display:block;background:#0B0D0F">
+      <img src="assets/logo-sc.png" alt="" aria-hidden="true" style="position:absolute;left:50%;top:50%;width:70%;height:auto;transform:translate(-50%,-50%);pointer-events:none">
+      <sc-if value="{{ personaF }}" hint-placeholder-val="{{ true }}"><image-slot id="avatar-mulher" shape="circle" placeholder="" style="position:relative;width:100%;height:100%;background:transparent"></image-slot></sc-if>
+      <sc-if value="{{ personaM }}" hint-placeholder-val="{{ false }}"><image-slot id="avatar-homem" shape="circle" placeholder="" style="position:relative;width:100%;height:100%;background:transparent"></image-slot></sc-if>
+    </span>
+    <span aria-hidden="true" style="position:absolute;right:-4px;top:-4px;padding:3px 5px;border-radius:999px;background:#1EE6AA;color:#000;font:700 9px/1 'JetBrains Mono',monospace;letter-spacing:.06em;pointer-events:none">IA</span>
+  </button>
+
+  <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+    <section id="assistente" role="dialog" aria-label="Assistente virtual Sport Center" style="position:fixed;right:clamp(14px,2vw,28px);bottom:calc(clamp(14px,2vw,28px) + 152px);z-index:90;width:min(380px,calc(100vw - 28px));height:min(540px,calc(100svh - 72px - 16px - clamp(14px,2vw,28px) - 152px));display:flex;flex-direction:column;background:#0B0D0F;border:1px solid rgba(30,230,170,.55);border-radius:8px;box-shadow:0 0 40px rgba(30,230,170,.18),0 20px 60px rgba(0,0,0,.6);overflow:hidden">
+      <header style="display:flex;align-items:center;gap:12px;padding:14px 14px 12px 16px;border-bottom:1px solid rgba(133,141,151,.25)">
+        <div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:0">
+          <span style="font:900 20px/1 'Archivo',sans-serif;font-stretch:72%;text-transform:uppercase;color:#F6EEE2">{{ assistantName }}</span>
+          <span style="font:500 12px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;color:#858D97">ASSISTENTE VIRTUAL COM IA · PODE ERRAR</span>
+        </div>
+        <div role="group" aria-label="Escolher avatar" style="display:flex;gap:4px">
+          <button type="button" aria-pressed="{{ personaF }}" onClick="{{ pickF }}" style="min-width:44px;min-height:36px;padding:0 10px;border-radius:999px;border:1px solid #1EE6AA;background:{{ pF.bg }};color:{{ pF.fg }};font:700 12px/1 'Inter',sans-serif;cursor:pointer">Ela</button>
+          <button type="button" aria-pressed="{{ personaM }}" onClick="{{ pickM }}" style="min-width:44px;min-height:36px;padding:0 10px;border-radius:999px;border:1px solid #1EE6AA;background:{{ pM.bg }};color:{{ pM.fg }};font:700 12px/1 'Inter',sans-serif;cursor:pointer">Ele</button>
+        </div>
+        <button type="button" onClick="{{ toggleChat }}" aria-label="Fechar assistente" style="width:44px;height:44px;display:grid;place-items:center;background:none;border:none;color:#fff;font-size:22px;cursor:pointer">×</button>
+      </header>
+      <div ref="{{ chatScrollRef }}" aria-live="polite" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="1">
+          <div style="align-self:{{ m.align }};max-width:86%;padding:10px 13px;border-radius:{{ m.radius }};background:{{ m.bg }};color:{{ m.fg }};border:{{ m.border }};font:400 15px/1.5 'Inter',sans-serif;white-space:pre-wrap;text-wrap:pretty">{{ m.text }}</div>
+        </sc-for>
+        <sc-if value="{{ busy }}" hint-placeholder-val="{{ false }}">
+          <div aria-label="Digitando" style="align-self:flex-start;display:flex;gap:5px;padding:12px 14px;border-radius:12px 12px 12px 4px;background:#14171A;border:1px solid rgba(133,141,151,.3)">
+            <span style="width:7px;height:7px;border-radius:50%;background:#1EE6AA;animation:scDots 1.2s infinite"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:#1EE6AA;animation:scDots 1.2s .2s infinite"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:#1EE6AA;animation:scDots 1.2s .4s infinite"></span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <sc-for list="{{ chips }}" as="q" hint-placeholder-count="4">
+              <button type="button" onClick="{{ q.on }}" style="min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(232,196,40,.7);background:none;color:#E8C428;font:600 13px/1 'Inter',sans-serif;cursor:pointer" style-hover="background:rgba(232,196,40,.12)">{{ q.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:12px;border-top:1px solid rgba(133,141,151,.25)">
+        <form onSubmit="{{ sendDraft }}" style="display:flex;gap:8px">
+          <label for="chat-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Sua mensagem</label>
+          <input id="chat-input" value="{{ draft }}" onChange="{{ onDraft }}" placeholder="Escreva sua dúvida" autocomplete="off" style="flex:1;min-width:0;min-height:44px;padding:0 14px;background:#000;border:1px solid rgba(133,141,151,.45);border-radius:4px;color:#fff;font:400 15px/1 'Inter',sans-serif">
+          <button type="submit" disabled="{{ busy }}" aria-label="Enviar" style="width:48px;min-height:44px;display:grid;place-items:center;background:#E8C428;border:none;border-radius:4px;color:#000;cursor:pointer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </button>
+        </form>
+        <a href="{{ c.assistente.href }}" onClick="{{ c.assistente.on }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;border-radius:4px;background:#1EE6AA;color:#000;font:800 15px/1 'Archivo',sans-serif;font-stretch:85%;letter-spacing:.02em" style-hover="color:#000;background:#4DF0C0">CONTINUAR NO WHATSAPP</a>
+        <sc-if value="{{ phChat }}" hint-placeholder-val="{{ true }}"><span style="align-self:flex-start;background:#FF2BD6;color:#000;font:700 10px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;padding:5px 7px;border-radius:2px">PLACEHOLDER · AVATAR: SOLTE A ARTE NO BOTÃO REDONDO. USAR ILUSTRAÇÃO, NÃO FOTO REALISTA</span></sc-if>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ showConsent }}" hint-placeholder-val="{{ false }}">
+    <div role="region" aria-label="Consentimento de cookies" style="position:fixed;left:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:80;max-width:min(440px,calc(100% - 110px));padding:18px;background:#0B0D0F;border:1px solid rgba(133,141,151,.4);border-radius:4px;display:flex;flex-direction:column;gap:14px">
+      <p style="margin:0;font-size:14px;line-height:1.5;color:#fff">Usamos cookies para medir cliques nos botões de contato. Nada é enviado sem a sua permissão.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <button type="button" onClick="{{ acceptConsent }}" style="min-height:44px;padding:0 18px;background:#E8C428;color:#000;border:none;border-radius:2px;font:800 14px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">ACEITAR</button>
+        <button type="button" onClick="{{ rejectConsent }}" style="min-height:44px;padding:0 18px;background:none;color:#E8C428;border:2px solid #E8C428;border-radius:2px;font:800 14px/1 'Archivo',sans-serif;font-stretch:85%;cursor:pointer">RECUSAR</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Seções da página" style="position:fixed;right:clamp(14px,2vw,28px);top:50%;transform:translateY(-50%);z-index:55;display:flex;align-items:stretch;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <a href="#inicio" aria-current="{{ rail.a1 }}" onClick="{{ go1 }}" style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-height:52px;min-width:44px;font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:{{ rail.c1 }};transition:color .3s">01</a>
+        <a href="#academia" aria-current="{{ rail.a2 }}" onClick="{{ go2 }}" style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-height:52px;min-width:44px;font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:{{ rail.c2 }};transition:color .3s">02</a>
+        <a href="#contato" aria-current="{{ rail.a3 }}" onClick="{{ go3 }}" style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-height:52px;min-width:44px;font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:{{ rail.c3 }};transition:color .3s">03</a>
+      </div>
+      <div aria-hidden="true" style="position:relative;width:26px">
+        <div style="position:absolute;left:12px;top:8px;bottom:8px;width:2px;background:rgba(133,141,151,.35)"></div>
+        <div style="position:absolute;left:12px;top:8px;width:2px;height:{{ rail.fill }};background:#1EE6AA;box-shadow:0 0 8px rgba(30,230,170,.7);transition:height .6s cubic-bezier(.16,1,.3,1)"></div>
+        <div style="position:absolute;left:-1px;top:{{ rail.top }};width:28px;height:14px;transform:translateY(-50%) rotate(90deg);transition:top .6s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 0 6px rgba(232,196,40,.8))">
+          <svg width="28" height="14" viewBox="0 0 28 14"><rect x="6" y="6" width="16" height="2" rx="1" fill="#E8C428"></rect><rect x="3" y="2" width="3" height="10" rx="1" fill="#E8C428"></rect><rect x="0" y="4" width="3" height="6" rx="1" fill="#E8C428"></rect><rect x="22" y="2" width="3" height="10" rx="1" fill="#E8C428"></rect><rect x="25" y="4" width="3" height="6" rx="1" fill="#E8C428"></rect></svg>
+        </div>
+      </div>
+    </nav>
+  </sc-if>
+
+  {{ zap }}
+  {{ intro }}
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;headline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;seu-horario&quot;,&quot;treine&quot;,&quot;aberto&quot;],&quot;default&quot;:&quot;seu-horario&quot;,&quot;tsType&quot;:&quot;'seu-horario'|'treine'|'aberto'&quot;,&quot;section&quot;:&quot;Copy&quot;},&quot;introSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:3,&quot;max&quot;:8,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;default&quot;:5.5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Abertura&quot;},&quot;introMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sessao&quot;,&quot;sempre&quot;,&quot;desligado&quot;],&quot;default&quot;:&quot;sessao&quot;,&quot;tsType&quot;:&quot;'sessao'|'sempre'|'desligado'&quot;,&quot;section&quot;:&quot;Abertura&quot;},&quot;avatar&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;mulher&quot;,&quot;homem&quot;],&quot;default&quot;:&quot;mulher&quot;,&quot;tsType&quot;:&quot;'mulher'|'homem'&quot;,&quot;section&quot;:&quot;Assistente&quot;},&quot;videoOpacity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0.1,&quot;max&quot;:0.8,&quot;step&quot;:0.05,&quot;default&quot;:0.4,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Vídeo&quot;},&quot;videoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/sportcenter-vertical.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo&quot;},&quot;showPlaceholders&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Revisão&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;whatsappDestino&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;simulacao&quot;,&quot;real&quot;],&quot;default&quot;:&quot;simulacao&quot;,&quot;tsType&quot;:&quot;'simulacao'|'real'&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;avatar3d&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Avatar 3D&quot;}}">
+class Component extends DCLogic {
+  state = { unidade: 'jardim', plano: 'anual', vw: window.innerWidth, muted: true, videoOn: false, intro: null, consent: null, consentOpen: false, now: new Date(), sec: 0, zapK: 0, logoK: 0, chatOpen: false, persona: null, msgs: [], draft: '', busy: false, teaser: false, teaserDone: false };
+
+  UNITS = {
+    jardim: { key: 'jardim', num: '01', nome: 'Jardim Encantado' },
+    dompedro: { key: 'dompedro', num: '02', nome: 'Dom Pedro I' },
+  };
+  PLANOS = { mensal: 'Mensal', trimestral: 'Trimestral', anual: 'Anual' };
+
+  componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let consent = null, unidade = 'jardim';
+    try { consent = localStorage.getItem('sc_consent'); unidade = localStorage.getItem('sc_unidade') || 'jardim'; } catch (e) {}
+    this.setState({ consent, unidade, consentOpen: !consent });
+    this.onResize = () => this.setState({ vw: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+    requestAnimationFrame(this.onResize);
+    if ('ResizeObserver' in window) { this.ro = new ResizeObserver(this.onResize); this.ro.observe(document.documentElement); }
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.intro) this.closeIntro(); };
+    window.addEventListener('keydown', this.onKey);
+    this.onMsg = (e) => { const d = e.data; if (d && d.sc === 'avatar-ex') this.setState({ avatarEx: { name: d.name, count: String(d.count).padStart(2, '0') + '/' + d.total, busy: !!d.busy } }); };
+    window.addEventListener('message', this.onMsg);
+    this.clock = setInterval(() => this.setState({ now: new Date() }), 20000);
+    this.startIntro(false);
+    if (!this.state.intro) this.armTeaser();
+    this.secIds = ['inicio', 'academia', 'contato'];
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const i = this.secIds.indexOf(en.target.id);
+          if (i >= 0 && this.avatarEl && this.avatarEl.contentWindow) this.avatarEl.contentWindow.postMessage({ sc: 'avatar', run: i === 0 }, '*');
+          if (i >= 0 && i !== this.state.sec) this.setState((st) => ({ sec: i, zapK: this.reduced || st.intro ? st.zapK : st.zapK + 1 }));
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      this.secIds.forEach((id) => { const el = document.getElementById(id); if (el) this.io.observe(el); });
+    }
+    if (!this.reduced) {
+      const go = () => this.setState({ videoOn: true });
+      if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 1200);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
+    window.removeEventListener('message', this.onMsg);
+    this.ro?.disconnect(); this.io?.disconnect();
+    clearInterval(this.clock); clearTimeout(this.introT); clearTimeout(this.teaserT);
+  }
+
+  startIntro(force) {
+    const mode = this.props.introMode ?? 'sessao';
+    if (!force) {
+      if (mode === 'desligado') return;
+      let seen = false;
+      try { seen = sessionStorage.getItem('sc_intro_seen') === '1'; } catch (e) {}
+      if (mode === 'sessao' && seen) return;
+    }
+    try { sessionStorage.setItem('sc_intro_seen', '1'); } catch (e) {}
+    this.setState({ intro: { k: Date.now(), still: this.reduced } });
+    clearTimeout(this.introT);
+    if (this.reduced) this.introT = setTimeout(() => this.closeIntro(), 2600);
+  }
+  closeIntro() { clearTimeout(this.introT); this.setState({ intro: null }); this.armTeaser(); }
+  armTeaser() {
+    clearTimeout(this.teaserT);
+    if (this.state.teaserDone) return;
+    this.teaserT = setTimeout(() => { if (!this.state.chatOpen && !this.state.teaserDone && !this.state.intro) this.setState({ teaser: true }); }, 5000);
+  }
+
+  SYSTEM = [
+    'Você é o assistente virtual (IA) do site da Sport Center — Centro de Treinamento, em São José da Lapa — MG. Fale sempre em português do Brasil, com frases curtas, tom acolhedor e direto. Responda em no máximo 3 frases.',
+    'FATOS QUE VOCÊ PODE USAR (e somente estes):',
+    '- Musculação e fisiculturismo.',
+    '- Aberta 24 horas, todos os dias. É a única academia 24 horas de São José da Lapa.',
+    '- Unidade Jardim Encantado: Av. Transamazônica, 1151 — Jardim Encantado, São José da Lapa — MG, 33350-000.',
+    '- Unidade Dom Pedro I: Av. João Alves da Costa, 497 — Dom Pedro I, São José da Lapa — MG, 33350-000.',
+    '- Planos: Mensal, Trimestral e Anual. Todos com acesso 24 horas, livre trânsito nas duas unidades, estrutura completa e suporte profissional.',
+    '- Instagram: @sportcenter.ct. Atendimento humano e matrícula pelo WhatsApp (botão "Continuar no WhatsApp" logo abaixo desta conversa).',
+    '- Vagas de trabalho: o interessado envia a mensagem pelo WhatsApp (seção Trabalhe conosco do site).',
+    'REGRAS: nunca informe preços, valores, descontos, telefones, nomes de professores, número de alunos, prêmios ou promoções — diga que a equipe passa isso pelo WhatsApp. Nunca prometa resultado físico. Nunca compare com outras academias além do fato de ser a única 24 horas da cidade. Não dê prescrição de treino, dieta ou orientação médica; sugira falar com a equipe. Se não souber algo, diga que não tem essa informação e indique o WhatsApp. Não use as frases "sem desculpas", "não pare", "o ferro é real". Não diga que é uma pessoa: você é um assistente virtual. Não use emojis nem markdown.',
+  ].join('\n');
+
+  greeting(p) {
+    return p === 'homem'
+      ? 'Oi! Sou o assistente virtual da Sport Center. Tiro dúvidas sobre planos, unidades e horário. Valores e matrícula, a equipe passa pelo WhatsApp.'
+      : 'Oi! Sou a assistente virtual da Sport Center. Tiro dúvidas sobre planos, unidades e horário. Valores e matrícula, a equipe passa pelo WhatsApp.';
+  }
+
+  async ask(text) {
+    const q = String(text || '').trim();
+    if (!q || this.state.busy) return;
+    const u = this.UNITS[this.state.unidade];
+    const history = [...this.state.msgs, { role: 'user', text: q }];
+    this.setState({ msgs: history, draft: '', busy: true });
+    let reply;
+    try {
+      const messages = history.map((m) => ({ role: m.role, content: m.text }));
+      reply = await window.claude.complete({ system: this.SYSTEM + '\nUnidade selecionada pelo visitante no site: ' + u.nome + '.', messages, max_tokens: 300 });
+    } catch (e) {
+      reply = 'Não consegui responder agora. Toque em "Continuar no WhatsApp" e a equipe te atende.';
+    }
+    const clean = String(reply || '').replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, '').replace(/\*\*/g, '').trim();
+    this.setState((st) => ({ msgs: [...st.msgs, { role: 'assistant', text: clean }], busy: false }));
+  }
+  componentDidUpdate() { const el = this.chatEl; if (el) el.scrollTop = el.scrollHeight; }
+
+  // Espelha src/lib/contact — único ponto de contato do site
+  contactHref(intent) {
+    const num = String(this.props.whatsappNumber ?? '').replace(/\D/g, '');
+    const u = this.UNITS[intent.unidade];
+    const plano = intent.plano ? `o plano ${intent.plano}` : 'os planos';
+    const text = intent.assunto === 'trabalhe'
+      ? `Olá! Vim pelo site da Sport Center e tenho interesse em trabalhar com vocês. Unidade de preferência: ${u.nome}.`
+      : `Olá! Vim pelo site da Sport Center e quero saber sobre ${plano}. Unidade: ${u.nome}.`;
+    if ((this.props.whatsappDestino ?? 'simulacao') === 'simulacao') {
+      const q = new URLSearchParams({ texto: text, unidade: intent.unidade, plano: intent.plano || 'Anual', assunto: intent.assunto || '', secao: intent.secao || '' });
+      return `Simulacao%20WhatsApp.dc.html?${q.toString()}`;
+    }
+    return `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+  }
+  sendContactIntent(intent) {
+    if (this.state.consent !== 'granted') return;
+    const ev = { event: 'contact_intent', ...intent };
+    (window.dataLayer = window.dataLayer || []).push(ev);
+    console.info('[analytics]', ev);
+  }
+  setConsent(v) {
+    try { localStorage.setItem('sc_consent', v); } catch (e) {}
+    this.setState({ consent: v, consentOpen: false });
+  }
+
+  buildIntro() {
+    const it = this.state.intro;
+    if (!it) return null;
+    const h = React.createElement;
+    const still = it.still;
+    const D = (this.props.introSeconds ?? 5.5) + 's';
+    const anim = (name, ease) => still ? {} : { animation: `${name} ${D} ${ease || 'cubic-bezier(.16,1,.3,1)'} both` };
+    const bolt = 'polygon(50.3% 29.8%, 58.6% 29.8%, 53.6% 50%, 57.7% 50%, 41.9% 88.8%, 46.9% 56.7%, 42.8% 56.7%)';
+    const boltLayer = (extra) => h('div', { style: { position: 'absolute', inset: 0, background: 'url(assets/simbolo-sc.jpg) center / 100% 100% no-repeat', clipPath: bolt, WebkitClipPath: bolt, ...extra } });
+    return h('div', {
+      key: it.k, role: 'presentation', onClick: () => this.closeIntro(),
+      onAnimationEnd: (e) => { if (e.target === e.currentTarget) this.closeIntro(); },
+      style: { position: 'fixed', inset: 0, zIndex: 200, background: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 18, cursor: 'pointer', overflow: 'hidden', ...(still ? {} : { animation: `scOverlay ${D} linear both` }) },
+    },
+      h('div', { style: { position: 'relative', width: 'min(620px, 92vw)', aspectRatio: '740 / 520' } },
+        h('img', { src: 'assets/simbolo-sc.jpg', alt: '', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%)', maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%)', ...anim('scSym', 'linear') } }),
+        still ? null : h('div', { style: { position: 'absolute', inset: 0, ...anim('scBoltLoad', 'linear') } },
+          boltLayer({ filter: 'brightness(.22) grayscale(.6)' }),
+          h('div', { style: { position: 'absolute', inset: 0, ...anim('scCharge', 'cubic-bezier(.4,0,.6,1)') } },
+            boltLayer({ filter: 'brightness(1.6) drop-shadow(0 0 14px rgba(232,196,40,.9))' }))),
+        h('div', { style: { position: 'absolute', left: '50%', top: '56%', width: '80%', aspectRatio: '1', borderRadius: '50%', background: 'radial-gradient(circle, #fff 0%, rgba(255,244,190,.95) 12%, rgba(232,196,40,.5) 32%, rgba(30,230,170,.18) 50%, rgba(232,196,40,0) 68%)', opacity: 0, ...anim('scFlash') } }),
+        h('div', { style: { position: 'absolute', left: '50%', top: '56%', width: '30%', aspectRatio: '1', borderRadius: '50%', border: '2px solid #1EE6AA', boxShadow: '0 0 24px rgba(30,230,170,.6), inset 0 0 18px rgba(30,230,170,.4)', opacity: still ? 0 : undefined, ...anim('scRing') } })),
+      still ? null : h('div', { style: { position: 'absolute', left: '50%', bottom: '18%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, width: 'min(280px, 70vw)', ...anim('scLoadTxt', 'linear') } },
+        h('div', { style: { width: '100%', height: 2, background: 'rgba(133,141,151,.3)', overflow: 'hidden' } },
+          h('div', { style: { width: '100%', height: '100%', background: 'linear-gradient(90deg,#A87810,#FFE24A)', boxShadow: '0 0 10px #E8C428', transformOrigin: 'left', ...anim('scBar', 'cubic-bezier(.4,0,.6,1)') } })),
+        h('span', { style: { font: "500 12px/1 'JetBrains Mono',monospace", letterSpacing: '.24em', color: '#858D97' } }, 'CARREGANDO')),
+      h('div', { style: { position: 'absolute', inset: 0, background: '#fff', pointerEvents: 'none', opacity: 0, ...anim('scWhite', 'linear') } }),
+      h('p', { style: { margin: 0, padding: '0 20px', textAlign: 'center', font: "900 clamp(40px,7vw,84px)/1 'Archivo',sans-serif", fontStretch: '66%', letterSpacing: '-.01em', color: '#F6EEE2', textShadow: '0 0 30px rgba(30,230,170,.35)', ...anim('scBrand') } }, 'SPORT CENTER'),
+      h('p', { style: { margin: 0, font: "500 13px/1 'JetBrains Mono',monospace", letterSpacing: '.3em', color: '#E8C428', ...anim('scBrandSub', 'linear') } }, 'CENTRO DE TREINAMENTO'),
+      h('button', { type: 'button', onClick: (e) => { e.stopPropagation(); this.closeIntro(); }, style: { position: 'absolute', top: 20, right: 20, minHeight: 44, padding: '0 16px', background: 'none', border: '1px solid rgba(133,141,151,.5)', borderRadius: 2, color: '#fff', font: "500 12px/1 'JetBrains Mono',monospace", letterSpacing: '.1em', cursor: 'pointer' } }, 'PULAR ›'));
+  }
+
+  buildZap() {
+    const k = this.state.zapK;
+    if (!k || this.reduced) return null;
+    const h = React.createElement;
+    const flip = k % 2 === 0;
+    const d = flip ? 'M -2 -2 L 30 28 L 22 33 L 56 62 L 47 66 L 102 102' : 'M 102 -2 L 70 28 L 78 33 L 44 62 L 53 66 L -2 102';
+    const path = (stroke, w, extra) => h('path', { d, pathLength: 1, fill: 'none', stroke, strokeWidth: w, strokeLinejoin: 'miter', vectorEffect: 'non-scaling-stroke', style: { strokeDasharray: 1, strokeDashoffset: 1, animation: 'scZap .6s cubic-bezier(.16,1,.3,1) both', ...extra } });
+    return h('div', { key: 'zap' + k, 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: 150, pointerEvents: 'none' } },
+      h('div', { style: { position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,240,180,.9), rgba(232,196,40,.2) 50%, rgba(0,0,0,0) 80%)', animation: 'scZapFlash .6s ease-out both' } }),
+      h('div', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: 3, background: 'linear-gradient(90deg, rgba(30,230,170,0), #1EE6AA, rgba(30,230,170,0))', boxShadow: '0 0 18px #1EE6AA', animation: 'scScan .6s cubic-bezier(.4,0,.6,1) both' } }),
+      h('svg', { viewBox: '0 0 100 100', preserveAspectRatio: 'none', style: { position: 'absolute', inset: 0, width: '100%', height: '100%', filter: 'drop-shadow(0 0 10px rgba(232,196,40,.9)) drop-shadow(0 0 24px rgba(232,196,40,.5))' } },
+        path('#FFE24A', 6), path('#fff', 2), path('#1EE6AA', 1.5, { transform: 'translate(1.5px, 1px)' })));
+  }
+
+  renderVals() {
+    const { vw, unidade, plano, muted, videoOn, consentOpen, now } = this.state;
+    const wide = vw >= 1024;
+    const ph = this.props.showPlaceholders ?? true;
+    const mk = (secao, pl, uni) => {
+      const intent = { origem: 'site', secao, plano: pl || null, unidade: uni || unidade };
+      return { href: this.contactHref(intent), on: () => this.sendContactIntent(intent) };
+    };
+    const hlKey = this.props.headline ?? 'seu-horario';
+    const hh = String(now.getHours()).padStart(2, '0'), mm = String(now.getMinutes()).padStart(2, '0');
+    const sel = (k) => unidade === k;
+    const num = String(this.props.whatsappNumber ?? '').replace(/\D/g, '');
+    const planCard = (k) => {
+      const on = plano === k, gold = k === 'anual';
+      return {
+        sel: on,
+        pick: () => this.setState({ plano: k }),
+        bg: on ? (gold ? 'rgba(232,196,40,.12)' : 'rgba(30,230,170,.10)') : 'rgba(7,9,10,.85)',
+        border: gold ? (on ? '2px solid #E8C428' : '1.5px solid rgba(232,196,40,.7)') : (on ? '2px solid #1EE6AA' : '1px solid rgba(30,230,170,.45)'),
+      };
+    };
+    return {
+      ph, phVideo: false,
+      unidade,
+      showUnitLabel: vw >= 460,
+      onUnidade: (e) => { const v = e.target.value; try { localStorage.setItem('sc_unidade', v); } catch (_) {} this.setState({ unidade: v }); },
+      videoSrc: videoOn ? (this.props.videoSrc ?? 'assets/sportcenter-vertical.mp4') : undefined,
+      videoOpacity: this.props.videoOpacity ?? 0.4,
+      videoRef: (el) => { this.video = el; if (el) { el.muted = this.state.muted; if (el.src) el.play?.().catch(() => {}); } },
+      muted, soundOn: !muted,
+      soundLabel: muted ? 'Ativar som do vídeo' : 'Desativar som do vídeo',
+      soundStatus: muted ? 'SOM DESLIGADO' : 'SOM LIGADO',
+      toggleSound: () => { const m = !this.state.muted; if (this.video) { this.video.muted = m; if (!m) this.video.play?.().catch(() => {}); } this.setState({ muted: m }); },
+      clock: `${hh}:${mm}`,
+      hl: { seu: hlKey === 'seu-horario', treine: hlKey === 'treine', aberto: hlKey === 'aberto' },
+      acadCols: wide ? 'minmax(0,1.1fr) minmax(0,.9fr)' : 'minmax(0,1fr)',
+      beneficios: ['Acesso 24 horas', 'Livre trânsito nas duas unidades', 'Estrutura completa', 'Suporte profissional'],
+      p: { mensal: planCard('mensal'), trimestral: planCard('trimestral'), anual: planCard('anual') },
+      planoCaps: this.PLANOS[plano].toUpperCase(),
+      planoCta: mk('academia', this.PLANOS[plano]),
+      c: { assistente: mk('assistente', this.PLANOS[plano]), trabalhe: { href: this.contactHref({ origem: 'site', secao: 'trabalhe-conosco', plano: null, unidade, assunto: 'trabalhe' }), on: () => this.sendContactIntent({ origem: 'site', secao: 'trabalhe-conosco', plano: null, unidade, assunto: 'trabalhe' }) }, hero: mk('hero'), contato: mk('contato'), flutuante: mk('flutuante'), u1: mk('contato', null, 'jardim'), u2: mk('contato', null, 'dompedro') },
+      u1Sel: sel('jardim'), u2Sel: sel('dompedro'),
+      u1Border: sel('jardim') ? '#1EE6AA' : 'rgba(133,141,151,.35)', u2Border: sel('dompedro') ? '#1EE6AA' : 'rgba(133,141,151,.35)',
+      u1Glow: sel('jardim') ? '0 0 40px rgba(30,230,170,.18)' : 'none', u2Glow: sel('dompedro') ? '0 0 40px rgba(30,230,170,.18)' : 'none',
+      waPending: ph && !num,
+      waLabel: num ? `+${num}` : 'FALE COM A GENTE',
+      showConsent: consentOpen,
+      acceptConsent: () => this.setConsent('granted'),
+      rejectConsent: () => this.setConsent('denied'),
+      reopenConsent: () => this.setState({ consentOpen: true }),
+      replayIntro: () => { window.scrollTo(0, 0); this.startIntro(true); },
+      intro: this.buildIntro(),
+      ...(() => {
+        const persona = this.state.persona || this.props.avatar || 'mulher';
+        const F = persona === 'mulher';
+        const bubble = (m) => m.role === 'user'
+          ? { ...m, align: 'flex-end', bg: '#E8C428', fg: '#000', border: 'none', radius: '12px 12px 4px 12px' }
+          : { ...m, align: 'flex-start', bg: '#14171A', fg: '#fff', border: '1px solid rgba(133,141,151,.3)', radius: '12px 12px 12px 4px' };
+        const chipQs = ['Quais são os planos?', 'Onde ficam as unidades?', 'Abre de madrugada?', 'Como trabalhar aí?'];
+        const setP = (p) => this.setState({ persona: p });
+        return {
+          chatOpen: this.state.chatOpen,
+          personaF: F, personaM: !F,
+          pF: F ? { bg: '#1EE6AA', fg: '#000' } : { bg: 'none', fg: '#1EE6AA' },
+          pM: !F ? { bg: '#1EE6AA', fg: '#000' } : { bg: 'none', fg: '#1EE6AA' },
+          pickF: () => setP('mulher'), pickM: () => setP('homem'),
+          assistantName: F ? 'Assistente SC' : 'Assistente SC',
+          launcherLabel: this.state.chatOpen ? 'Fechar assistente virtual' : 'Abrir assistente virtual com IA',
+          talkAnim: this.state.busy || this.state.teaser ? 'scTalk 1.4s ease-in-out infinite' : 'none',
+          msgs: [{ role: 'assistant', text: this.greeting(persona) }, ...this.state.msgs].map(bubble),
+          busy: this.state.busy,
+          showChips: this.state.msgs.length === 0,
+          chips: chipQs.map((label) => ({ label, on: () => this.ask(label) })),
+          draft: this.state.draft,
+          onDraft: (e) => this.setState({ draft: e.target.value }),
+          sendDraft: (e) => { e.preventDefault(); this.ask(this.state.draft); },
+          chatScrollRef: (el) => { this.chatEl = el; },
+          toggleChat: () => this.setState((st) => ({ chatOpen: !st.chatOpen, teaser: false, teaserDone: true })),
+          openChat: () => this.setState({ chatOpen: true, teaser: false, teaserDone: true }),
+          teaser: this.state.teaser && !this.state.chatOpen,
+          teaserText: F ? 'Oi! Quer ajuda para escolher seu plano?' : 'Oi! Quer ajuda para escolher seu plano?',
+          hideTeaser: () => this.setState({ teaser: false, teaserDone: true }),
+        };
+      })(),
+      zap: this.buildZap(),
+      ...(() => {
+        const on = wide && !this.reduced && (this.props.avatar3d ?? true);
+        const ex = this.state.avatarEx || { name: 'Supino', count: '01/10', busy: false };
+        const post = (m) => { try { this.avatarEl?.contentWindow?.postMessage({ sc: 'avatar', ...m }, '*'); } catch (_) {} };
+        return {
+          showAvatar: on, bgVideo: !on, sectionVideo: on,
+          h1Size: on ? 'clamp(50px,7.2vw,116px)' : 'clamp(50px,11.5vw,144px)',
+          h1Max: on ? '60%' : 'none',
+          avatarEx: ex, avatarBusy: !!ex.busy,
+          avatarNext: () => post({ cmd: 'next' }),
+          avatarLoaded: () => { post({ cmd: 'hello' }); post({ run: this.state.sec === 0 }); },
+        };
+      })(),
+      avatarSrc: this.state.intro ? undefined : 'avatar-3d-bg.html',
+      avatarRef: (el) => { this.avatarEl = el; },
+      phHeader: ph && vw >= 900,
+      phChat: ph && window.innerHeight >= 700,
+      longUnits: vw >= 640, shortUnits: vw < 640,
+      pickJardim: () => { try { localStorage.setItem('sc_unidade', 'jardim'); } catch (_) {} this.setState({ unidade: 'jardim' }); },
+      pickDomPedro: () => { try { localStorage.setItem('sc_unidade', 'dompedro'); } catch (_) {} this.setState({ unidade: 'dompedro' }); },
+      u1Btn: sel('jardim') ? { bg: '#E8C428', fg: '#000' } : { bg: 'rgba(0,0,0,.5)', fg: '#E8C428' },
+      u2Btn: sel('dompedro') ? { bg: '#E8C428', fg: '#000' } : { bg: 'rgba(0,0,0,.5)', fg: '#E8C428' },
+      showRail: vw >= 720,
+      padR: vw >= 720 ? 'max(clamp(20px,5vw,80px), 124px)' : 'clamp(16px,5vw,80px)',
+      rail: (() => { const i = this.state.sec; const tops = ['30px', '88px', '146px']; const fills = ['22px', '80px', 'calc(100% - 16px)']; const c = (n) => (i === n ? '#1EE6AA' : '#858D97'); return { top: tops[i], fill: fills[i], c1: c(0), c2: c(1), c3: c(2), a1: i === 0 ? 'true' : undefined, a2: i === 1 ? 'true' : undefined, a3: i === 2 ? 'true' : undefined }; })(),
+      go1: () => this.setState((st) => ({ zapK: this.reduced ? st.zapK : st.zapK + 1 })),
+      go2: () => this.setState((st) => ({ zapK: this.reduced ? st.zapK : st.zapK + 1 })),
+      go3: () => this.setState((st) => ({ zapK: this.reduced ? st.zapK : st.zapK + 1 })),
+      logoZap: () => { if (!this.reduced) this.setState((st) => ({ logoK: st.logoK + 1 })); },
+      logoFx: this.reduced ? null : React.createElement('span', { key: 'lg' + this.state.logoK, 'aria-hidden': true, onAnimationEnd: () => { if (this.state.logoK) this.setState({ logoK: 0 }); }, style: { position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(105deg, rgba(0,0,0,0) 35%, #FFE24A 46%, #fff 50%, #1EE6AA 56%, rgba(0,0,0,0) 66%)', backgroundSize: '300% 100%', WebkitMaskImage: 'url(assets/logo-sc.png)', maskImage: 'url(assets/logo-sc.png)', WebkitMaskSize: '100% 100%', maskSize: '100% 100%', filter: 'drop-shadow(0 0 6px rgba(232,196,40,.9))', animation: this.state.logoK ? 'scShineNow .7s cubic-bezier(.16,1,.3,1) both' : 'scShine 4.5s linear infinite' } }),
+      headerRun: this.reduced ? null : React.createElement('span', { 'aria-hidden': true, style: { position: 'absolute', left: 0, right: 0, bottom: -1, height: 2, overflow: 'hidden', pointerEvents: 'none' } },
+        React.createElement('span', { style: { position: 'absolute', top: 0, left: 0, width: 220, height: 2, background: 'linear-gradient(90deg, rgba(30,230,170,0), #1EE6AA 40%, #FFE24A 80%, #fff)', boxShadow: '0 0 12px #FFE24A, 0 0 24px #1EE6AA', animation: 'scRun 5s cubic-bezier(.6,0,.4,1) infinite' } })),
+    };
+  }
+}
+</script>
+</body>
+</html>
